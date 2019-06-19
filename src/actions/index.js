@@ -30,7 +30,7 @@ export const fetchCharacters = () => dispatch => {
     dispatch(requestSucceeded(data))
   })
   .catch( err => {
-    console.log(err.message)
+    console.log(err)
     dispatch(requestFailed(err.message))
   })
 }

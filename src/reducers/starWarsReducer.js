@@ -1,9 +1,11 @@
 import { FETCHING, SUCCESS, FAILURE } from "../actions";
 const initialState = {
-  characters: [],
+  characters: null,
   // Array characters, Boolean fetching, null error.
   fetching: false,
   error: null,
+  next: null,
+  prev: null
 };
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -19,7 +21,9 @@ export const charsReducer = (state = initialState, action) => {
       return {
         ...state,
         fetching: false,
-        characters: action.payload
+        characters: action.payload.results,
+        next: action.payload.next,
+        prev: action.payload.previous
       }
     case FAILURE:
       return {
