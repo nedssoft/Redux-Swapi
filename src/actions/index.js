@@ -1,6 +1,6 @@
 // we'll need axios
 import axios from "axios";
-
+import {toastr} from 'react-redux-toastr'
 export const SUCCESS = "SUCCESS";
 export const FETCHING = "FETCHING";
 export const FAILURE = "FAILURE";
@@ -26,11 +26,10 @@ export const fetchCharacters = (url = null) => dispatch => {
   dispatch(requestFetching())
   axios.get(url || 'https://swapi.co/api/people/')
   .then( ({ data}) => {
-    console.log(data)
     dispatch(requestSucceeded(data))
   })
   .catch( err => {
-    console.log(err)
+    toastr.error('Error', err.message)
     dispatch(requestFailed(err.message))
   })
 }

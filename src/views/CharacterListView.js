@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-
+import ReduxToastr from 'react-redux-toastr'
 import { CharacterList } from "../components";
 // import actions
 import { fetchCharacters } from "../actions/index";
@@ -19,6 +19,16 @@ class CharacterListView extends React.Component {
   render() {
     return (
       <div className="CharactersList_wrapper">
+        <ReduxToastr
+          timeOut={4000}
+          newestOnTop={false}
+          preventDuplicates
+          position="top-right"
+          transitionIn="fadeIn"
+          transitionOut="fadeOut"
+          progressBar
+          closeOnToastrClick
+        />
         {this.props.fetching && <Spinner />}
         {this.props.characters && (
           <CharacterList
