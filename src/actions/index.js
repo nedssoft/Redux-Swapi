@@ -22,9 +22,9 @@ const requestSucceeded = (payload) => {
   return { type: SUCCESS, payload }
 }
 
-export const fetchCharacters = () => dispatch => {
+export const fetchCharacters = (url = null) => dispatch => {
   dispatch(requestFetching())
-  axios.get('https://swapi.co/api/people/')
+  axios.get(url || 'https://swapi.co/api/people/')
   .then( ({ data}) => {
     console.log(data)
     dispatch(requestSucceeded(data))
