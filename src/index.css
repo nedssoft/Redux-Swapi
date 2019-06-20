@@ -2,4 +2,76 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  width: 100vw;
+  height: 100%;
 }
+body > * {
+  box-sizing: border-box;
+}
+.CharactersList_wrapper {
+  width: 100%;
+  margin: 4rem auto;
+}
+.character-list {
+  width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 500px) {
+  .character-list {
+    width: 90%;
+  }
+}
+ ul {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+ }
+ ul li {
+   width: 100%;
+   padding: 8px 10px;
+   margin-bottom: 1px;
+   background: aliceblue;
+ }
+ .controls {
+   width: 100%;
+   display: flex;
+  justify-content: space-between;
+  align-items: center;
+ }
+ .controls button {
+   outline: none;
+   border-radius: 6px;
+   padding: 8px;
+   cursor: pointer;
+   background: black;
+   color: aliceblue;
+   font-size: 16px;
+ }
+ .controls button:disabled {
+   background: #ccc;
+   cursor: not-allowed;
+ }
+
+ h1 {
+   text-align: center;
+   position: relative;
+   padding-bottom: 6px;
+ }
+
+ h1:after {
+   content: '';
+   width: 100px;
+   background: black;
+   height: 3px;
+   position: absolute;
+   bottom: 0;
+   left: 40%;
+ }
